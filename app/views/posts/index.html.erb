@@ -1,0 +1,6 @@
+<%= link_to "add new post", new_post_path%>
+<% @posts.each  do |post| %>
+	<%= post.caption%>
+	<%= link_to (image_tag post.image.url(:original), class:'img-responsive'), post_path(post) %>
+
+<%end%>
