@@ -1,6 +1,12 @@
 <%= link_to "add new post", new_post_path%>
 <% @posts.each  do |post| %>
 	<%= post.caption%>
+	<%= time_ago_in_words(post.created_at).gsub('about','')%>
+	<%= post.get_upvotes.size%>
 	<%= link_to (image_tag post.image.url(:original), class:'img-responsive'), post_path(post) %>
-
+	<% if current_user.voted_up_on? post%>
+		<%= link_to "unLike", unlike_post_path(post), method: :put %>
+		<%else%>
+		<%= link_to "Like", like_post_path(post), method: :put %>
+	<%end %>
 <%end%>

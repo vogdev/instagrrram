@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	acts_as_voter
 	has_many :posts, dependent: :destroy  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
 	before_action :set_post_owner, only: [:edit, :update, :destroy]
 	def index
 		@posts = Post.all
@@ -35,6 +35,15 @@ class PostsController < ApplicationController
 		@post.destroy
 		redirect_to posts_path
 	end
+	def like
+		@post.liked_by current_user
+		redirect_to posts_path
+	end
+	def unlike
+		@post.unliked_by current_user
+		redirect_to posts_path
+	end
+
 	private
 	def post_params
 	params.require(:post).permit(:caption, :image)
