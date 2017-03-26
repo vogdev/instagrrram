@@ -1,9 +1,11 @@
 <div class="row">
+<h1><%= current_user.username%></h1>
 	<% @posts.each  do |post| %>
 		<div class="col-xs-12 col-md-12">
 			<div class="post">
 				<div class="post-header">
 					<p class="pull-left">	<%= post.caption%></p>
+					<%= link_to post.user.username, profile_path(post.user.id) %>
 					<p class="pull-right"><%= time_ago_in_words(post.created_at).gsub('about','')%></p>
 				</div>
 				<%= link_to (image_tag post.image.url(:original), class:'img-responsive'), post_path(post), clas: "thumbnail" %>

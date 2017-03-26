@@ -1,0 +1,7 @@
+<%= render 'follow_button', :user => @user%>
+<%= @user.username%>
+<h1><%= @user.followers.count%> followers </h1>
+<% @posts.each do |post| %>
+  <%= post.caption%>
+  <%= image_tag post.image.url(:thumb), class: 'thumbnail' %>
+<% end %>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
 	before_action :set_post_owner, only: [:edit, :update, :destroy]
 	def index
-		@posts = Post.all
+		@posts = Post.where(user_id: current_user.following).or(Post.where(user_id: current_user)).order('created_at DESC')
 	end
 	def show  
 	end 
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 	 @post = current_user.posts.build(post_params)
 		if @post.save
 			flash[:success] = "Post created"
-			redirect_to posts_path
+			redirect_to root_path
 			else
 			flash.now[:alert] = "something went wrong."
 			render :new
@@ -33,11 +33,11 @@ class PostsController < ApplicationController
 	end
 	def destroy
 		@post.destroy
-		redirect_to posts_path
+		redirect_to root_path
 	end
 	def like
 		@post.liked_by current_user
-		redirect_to posts_path
+		redirect_to root_path
 	end
 	def unlike
 		@post.unliked_by current_user
