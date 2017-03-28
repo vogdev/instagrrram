@@ -1,5 +1,6 @@
 <%= render 'follow_button', :user => @user%>
 <%= @user.username%>
+<%= image_tag @user.user_image.url(:original), class:'img-circle'%>
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @user.followers.count%> followers
   <span class="caret"></span></button>
