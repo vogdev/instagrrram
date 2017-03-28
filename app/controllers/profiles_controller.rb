@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
 	def show  
-	  @posts = User.find_by(id: params[:id]).posts.order('created_at DESC')
+	  @profilePosts = User.find_by(id: params[:id]).posts.order('created_at DESC').page(params[:page])
 	  @user = User.find_by(id: params[:id])
 	end  
 end

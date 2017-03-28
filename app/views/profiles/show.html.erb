@@ -1,7 +1,26 @@
 <%= render 'follow_button', :user => @user%>
 <%= @user.username%>
-<h1><%= @user.followers.count%> followers </h1>
-<% @posts.each do |post| %>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @user.followers.count%> followers
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+  <% @user.followers.each do |follower| %> 
+    <li><%= link_to follower.username, profile_path(follower.id) %></li>
+    <%	end %>
+  </ul>
+</div>
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><%= @user.following.count%> following
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+  <% @user.following.each do |following| %> 
+    <li><%= link_to following.username, profile_path(following.id) %></li>
+    <%	end %>
+  </ul>
+</div>
+<% @profilePosts.each do |post| %>
   <%= post.caption%>
   <%= image_tag post.image.url(:thumb), class: 'thumbnail' %>
 <% end %>
+
+<%= paginate @profilePosts%>

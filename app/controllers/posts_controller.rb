@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
 	before_action :set_post_owner, only: [:edit, :update, :destroy]
 	def index
-		@posts = Post.where(user_id: current_user.following).or(Post.where(user_id: current_user)).order('created_at DESC')
+		@posts = Post.followingAndCurrentUserPosts(current_user).page(params[:page])
 	end
 	def show  
 	end 
