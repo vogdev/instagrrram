@@ -15,3 +15,14 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+$(document).on('turbolinks:load', function() {
+	$( ".pic" ).click(function() {
+		 setTimeout(function(){
+	 		$('#myModal').modal('show');
+		}, 500);
+	});
+	$('.pic img').click(function () {
+            var currentImage = $(this).attr('src');
+            $('#main-img').attr('src',currentImage);
+        });
+});
