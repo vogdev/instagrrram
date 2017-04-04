@@ -14,10 +14,10 @@ class PostsController < ApplicationController
 	 @post = current_user.posts.build(post_params)
 		if @post.save
 			flash[:success] = "Post created"
-			redirect_to root_path
+			redirect_to profile_path(current_user)
 			else
 			flash.now[:alert] = "something went wrong."
-			render :new
+			redirect_back(fallback_location: :root_path)
 		end
 	end  
 	def edit
@@ -33,15 +33,13 @@ class PostsController < ApplicationController
 	end
 	def destroy
 		@post.destroy
-		redirect_to root_path
+		redirect_back(fallback_location: :back)
 	end
 	def like
 		@post.liked_by current_user
-		redirect_to root_path
 	end
 	def unlike
-		@post.unliked_by current_user
-		redirect_to posts_path
+	 @post.unliked_by current_user
 	end
 
 	private

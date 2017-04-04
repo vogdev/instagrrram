@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	get ':id', to: 'profiles#show', as: :profile  
+	get 'user/:id/show', to: 'profiles#show', as: :profile  
 resources :relationships
   devise_for :users
   	resources :users, only:[:following, :followers] do
@@ -12,7 +12,7 @@ resources :relationships
   	resources :comments
   	member do
   		put "like" => 'posts#like'
-  		put "unlike" => 'posts#unlike'
+            put "unlike" => 'posts#unlike'
   	end
   end
 end

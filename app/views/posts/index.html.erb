@@ -1,8 +1,7 @@
-<div class="container">
-  <div class="row">
-		<%= render @posts %>
-		<center>
+<div class="row index_page">
+	<%#= render @posts %>
+	<%= react_component("Posts")%>
+	<center>
 		<%= paginate @posts%>
-		</center>
-	</div>
+	</center>
 </div>
