@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!
-	before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike]
+	before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :unlike,]
 	before_action :set_post_owner, only: [:edit, :update, :destroy]
 	def index
-		@posts = Post.followingAndCurrentUserPosts(current_user).page(params[:page])
+		@posts = Post.followingAndCurrentUserPosts(current_user).page(params[:page]).per(params[:per] || 6)
 	end
 	def show  
 	end 
@@ -36,10 +36,12 @@ class PostsController < ApplicationController
 		redirect_back(fallback_location: :back)
 	end
 	def like
+		  head(:ok)
 		@post.liked_by current_user
 	end
 	def unlike
-	 @post.unliked_by current_user
+			head(:ok)
+		 @post.unliked_by current_user
 	end
 
 	private

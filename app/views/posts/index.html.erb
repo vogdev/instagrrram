@@ -1,6 +1,39 @@
 <div class="row index_page">
-	<%#= render @posts %>
-	<%= react_component("Posts")%>
+	<% @posts.each do |post| %>
+		<div class="col-sm-12 col-md-12 posts-grid">
+			<div class="thumbnail">
+				<div class="thumbnail-header">
+					<div class="user_info">
+						<%= image_tag post.user.user_image.url(:thumb), class: "img-circle post-user-img" %>
+						<p class="bt"><%= link_to post.user.username, profile_path(post.user.id) %></p>
+					</div>
+					<div class="post-date">
+						<p><%= time_ago_in_words(post.created_at).gsub('about','')%></p>
+					</div>
+				</div>
+				<div class="post-image">
+					<%= image_tag post.image.url(:original), class: "img-responsive" %>
+				</div>
+				<div class="caption">
+					<%= react_component 'VoteButton', { post_id: post.id, voted: (current_user.voted_up_on? post), likes:(post.get_upvotes.size) } %>
+					<!--  //////   comments section  //////   -->
+						<% if post.comments %>
+							<div id="comment" class="post-comments">
+								<dl class="dl-horizontal">
+									<div class="comments" id="comments_<%= post.id %>">
+										<%= render post.comments.last(4), post: post %>
+									</div>
+								</dl>
+							</div>
+						<% end %>
+					<!--   //////   end of comments section  //////    -->
+					<%= form_for [post, post.comments.new], remote: true do |f| %>
+					<%= f.text_field :content, placeholder: 'Add a comment...', class: "orm-control post-comment-input", id: "comment_content_#{post.id}" , autocomplete: :off %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	<%end%>	
 	<center>
 		<%= paginate @posts%>
 	</center>

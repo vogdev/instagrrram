@@ -8,6 +8,12 @@ body {
   margin-right: 0px;
   margin-left: 0px;
 }
+  .top-container{
+    margin-top: 50px;
+  }
+  .top-profile{
+    margin-top: 50px;
+  }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #000;
     background-color: #e7e7e7;
@@ -40,13 +46,16 @@ body {
     border-radius: 0;
 }
 .glyphicon {
-    top: -1px;
+    top: 1px;
     left: -1px;
 }
 .red {
   background-color: #F44336 !important;
 }
 .btn-floating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   width: 56px;
   height: 56px;
@@ -58,12 +67,8 @@ body {
   background: #FFFFFF;
 }
 .btn-floating .glyphicon-heart{
-  width: inherit;
-  display: inline-block;
-  text-align: center;
-  color: #F44336 !important;
-  font-size: 2.5rem;
-  line-height: 56px;
+color: #F44336 !important;
+font-size: 2.5rem;
 }
 .btn-floating  .glyphicon-heart-empty {
     width: inherit;
@@ -138,6 +143,10 @@ body {
 
 .post-comments {
   margin-top: 20px;
+}
+.post_likes {
+    display: flex;
+    align-items: center;
 }
 
 .post-comment-input {
@@ -279,6 +288,7 @@ a:hover, a:focus {
   max-width: 600px;
   width: inherit;
 }
+
 .modal-body .col-md-4 {
   padding-right: 0;
   padding-left: 0;
@@ -368,8 +378,8 @@ a:hover, a:focus {
       width: 100%;
     }
     .modal-body .row {
-    height: 100%;
-    display: block;
+      height: 100%;
+      display: block;
   }
   .no-float {
     display: block;
