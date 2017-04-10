@@ -1,0 +1,145 @@
+
+.modal {
+  text-align: center;
+}
+.modal-body {
+  position: relative;
+  padding: 0;
+}
+.modal-body .col-md-8 {
+  padding-right: 0;
+  padding-left: 0;
+  max-width: 600px;
+  width: inherit;
+}
+.modal-body .col-md-4 {
+  padding-right: 0;
+  padding-left: 0;
+  width: inherit;
+
+}
+.modal-body .row {
+  height: 100%;
+  display: flex;
+}
+.no-float {
+    display: table-cell;
+    float: none;
+}
+.modal-content {
+  border-radius: 0;
+}
+.modal-header-small{
+  display: none;
+}
+.modal-header {
+  display: inherit;
+  padding: 5px;
+}
+.modal-open .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-left: 0 !important;
+}
+.modal-form {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+}
+.modal-following {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+.modal-p{
+  padding: 10px;
+} 
+.modal-comments {
+  max-height: 350px;
+  overflow: auto;
+}
+.modal-close{
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  font-size: 30px;
+  opacity: 1;
+  color: #FFFFFF;
+}
+@media (min-width: 992px) {
+  .modal-dialog {
+    width: 900px;
+    margin: 30px auto;
+  }
+  .modal-header {
+    display: none;
+  }
+  .modal-header-small{
+    display: inherit;
+    padding: 5px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    width: inherit;
+    margin-top: 40px;
+  }
+  @media (min-width: 768px){
+  .dl-horizontal dt {
+      float: left;
+      width: inherit;
+      overflow: hidden;
+      clear: left;
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left:0px ;
+    }
+}
+  @media (max-width: 768px) {
+  .container {
+      padding-right: 0;
+      padding-left: 0;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  .posts-grid{
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .post-image {
+    min-height: 300px;
+    background-color: #333333;
+  }
+  .user-posts .row .col-md-4 {
+      padding: 2px;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+    .modal-form {
+      position: inherit;
+      width: 100%;
+    }
+    .modal-body .row {
+      height: 100%;
+      display: block;
+  }
+  .no-float {
+    display: block;
+    float: none;
+  }
+}

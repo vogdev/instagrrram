@@ -27,4 +27,23 @@ $(document).on('turbolinks:load', function() {
 	 		$('#myModal').modal('show');
 		}, 500);
         });
+
+
+
+	  $('.btn-register-modal').click(function(){
+    $('#regester').toggle();
+    $('#login').toggle();
+    var text = $('.btn-register-modal').text();
+        $('.btn-register-modal').text(text == "Sign In" ? "Sign Up" : "Sign In");
+    });
+    $('.btn-login').click(function(){
+      $('#regester').hide();
+      $('#login').show();
+    });
+    $('.btn-register').click(function(){
+      var text = $('.btn-register-modal').text();
+        $('.btn-register-modal').text(text == "Sign In" ? "Sign Up" : "Sign In");
+      $('#login').hide();
+      $('#regester').show();
+    });
 });
