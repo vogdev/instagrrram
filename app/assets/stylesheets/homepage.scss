@@ -1,17 +1,13 @@
 *{
 font-family: 'Nunito', sans-serif;
 }
-html,
-body {
-  min-height: 100%;
-  padding: 0;
-  margin: 0;
-}
+
 body {
    height: 100vh;
 	background: url('homebg.jpg') no-repeat;
 	background-size: cover;
 	background-clip: border-box;
+	    background-position: center;
 }
 .btn-register{
 	color: #FFFFFF;

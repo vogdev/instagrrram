@@ -9,12 +9,37 @@ body {
   margin-right: 0px;
   margin-left: 0px;
 }
-  .top-container{
-    margin-top: 50px;
-  }
-  .top-profile{
-    margin-top: 80px;
-  }
+.btn {
+    position: relative;
+    padding: 8px 30px;
+    border: 0;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.84);
+    transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none !important;
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    background-image: none;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857143;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.top-container{
+  margin-top: 50px;
+}
+.top-profile{
+  margin-top: 80px;
+}
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #000;
     background-color: #e7e7e7;
@@ -111,6 +136,7 @@ font-size: 2.5rem;
 }
 .user-profile-img {
   width: 150px;
+  height: 150px;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.3);
 }
 .user_info img{
@@ -280,4 +306,34 @@ a:hover, a:focus {
       align-items: center;
       justify-content: center;
   }
+}
+
+
+.btn-user {
+  background-color: #3f51b5;
+  color: rgba(255, 255, 255, 0.84);
+  position: relative;
+  padding: 8px 30px;
+  border: 0;
+  margin: 10px 1px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none !important;
+}
+
+.teste{display: none;}
+.edit-user{
+  margin-top: 40px;
+  padding: 19px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 2px;
+  border: 0;
+  background-color: white;
+}
+.update-btn{
+  background-color: #009688;
 }

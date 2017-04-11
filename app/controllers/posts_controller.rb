@@ -38,15 +38,17 @@ class PostsController < ApplicationController
 	def like
 		  head(:ok)
 		@post.liked_by current_user
+		@post.increment!(:likes, 1)
 	end
 	def unlike
 			head(:ok)
 		 @post.unliked_by current_user
+		 @post.decrement!(:likes, 1)
 	end
 
 	private
 	def post_params
-	params.require(:post).permit(:caption, :image)
+	params.require(:post).permit(:caption, :image, :likes)
 	end
 	def set_post
 		@post = Post.find(params[:id])

@@ -15,7 +15,7 @@
 					<%= image_tag post.image.url(:original), class: "img-responsive" %>
 				</div>
 				<div class="caption">
-					<%= react_component 'VoteButton', { post_id: post.id, voted: (current_user.voted_up_on? post), likes:(post.get_upvotes.size) } %>
+					<%= react_component 'VoteButton', { post_id: post.id, voted: (current_user.voted_up_on? post), likes:(post.likes) } %>
 					<!--  //////   comments section  //////   -->
 						<% if post.comments %>
 							<div id="comment" class="post-comments">
