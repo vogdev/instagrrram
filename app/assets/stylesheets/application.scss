@@ -9,6 +9,14 @@ body {
   margin-right: 0px;
   margin-left: 0px;
 }
+.img-responsive {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.dropdown-backdrop { 
+    display: none;
+}
 .btn {
     position: relative;
     padding: 8px 30px;

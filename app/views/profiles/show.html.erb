@@ -11,13 +11,9 @@
           <h3><%= @user.username%></h3>
           <%= render 'follow_button', :user => @user%>
         </div>
-          <div>
-            <ul class="list-unstyled status-list">
-              <li><span class="lead"><%= @profilePosts.count%></span> posts</li>
-              <li><a href="#"><span class="lead"><%= @user.followers.count%></span> followres</a></li>
-              <li><a href="#"><span class="lead"><%= @user.following.count%></span> following</a></li>
-            </ul>
-          </div>
+
+<%= react_component 'profileFollow' ,{posts_count: @profilePosts.count, followers_count: @user.followers.count, following_count: @user.following.count, user_id: @user.id}%>
+
     </div>
     </div>
   </section>
@@ -48,59 +44,58 @@
             </div>
           </div>
     </section>
-    <section>
-             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-             <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close" style="
-"><span aria-hidden="true">×</span></button>
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <div class="user_info">
-                        <%= image_tag @user.user_image.url(:original), class:'img-circle post-user-img'%>
-                        <p class="bt"><%= @user.username%></p>
-                        <%= render 'follow_button', :user => @user%>
-                    </div>
-                  </div>
-                  <div class="modal-body">
-                    <div class="row">
-                      <div class="col-md-8">
-                        <img id="main-img" src="" class="img-responsive">
-                      </div>
-                      <div class="col-md-4 no-float">
-                        <div class="modal-header-small">  
-                        <div class="user_info">
-                            <%= image_tag @user.user_image.url(:original), class:'img-circle post-user-img'%>
-                            <p class="bt"><%= @user.username%></p>
-                            <%= render 'follow_button', :user => @user%>
-                        </div>
-                        </div>
-                          <div class="modal-p">
-                               <div class="likes-date">
-                                <p class="bt">423 likes</p>
-                                <p class="left-p">15h</p>
-                              </div>
-                              <div class="post-comments modal-comments">
-                                  <dl class="dl-horizontal">
-                                      <dt>Description lists :</dt>
-                                      <dd>A description list is perfect for defining terms.</dd>
-                                      <dt>Euismod :</dt> 
-                                      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                                      <dt>Malesuada porta :</dt>
-                                      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                                      <dt>Felis euismod.. :</dt>
-                                      <dd>Fusce dapibus, ut fermentum massa justo sit amet risus.</dd>
-                                  </dl>
-                              </div> 
-                          </div>
-                      <div class="modal-form">
-                          <input type="text"  class="form-control post-comment-input"  id="exampleInputName2" placeholder="Add a comment">
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-    </section>
+<section>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="user_info">
+            <%= image_tag @user.user_image.url(:original), class:'img-circle post-user-img'%>
+             <p class="bt"><%= @user.username%></p>
+            <%= render 'follow_button', :user => @user%>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-8">
+             <img id="main-img" src="" class="img-responsive">
+            </div>
+            <div class="col-md-4 no-float">
+              <div class="modal-header-small">  
+                <div class="user_info">
+                  <%= image_tag @user.user_image.url(:original), class:'img-circle post-user-img'%>
+                   <p class="bt"><%= @user.username%></p>
+                  <%= render 'follow_button', :user => @user%>
+                </div>
+              </div>
+              <div class="modal-p">
+                <div class="likes-date">
+                  <p class="bt">423 likes</p>
+                  <p class="left-p">15h</p>
+                </div>
+                <div class="post-comments modal-comments">
+                  <dl class="dl-horizontal">
+                    <dt>Description lists :</dt>
+                    <dd>A description list is perfect for defining terms.</dd>
+                    <dt>Euismod :</dt> 
+                    <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                    <dt>Malesuada porta :</dt>
+                    <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                    <dt>Felis euismod.. :</dt>
+                    <dd>Fusce dapibus, ut fermentum massa justo sit amet risus.</dd>
+                  </dl>
+                </div> 
+              </div>
+              <div class="modal-form">
+              <input type="text"  class="form-control post-comment-input"  id="exampleInputName2" placeholder="Add a comment">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</section>
 
 <%= paginate @profilePosts%>

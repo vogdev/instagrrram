@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-	get 'user/:id/show', to: 'profiles#show', as: :profile  
+  get 'user/:id/followers', to: 'profiles#user_followers', as: :followers
+  get 'user/:id/following', to: 'profiles#user_following', as: :following
+  get 'user/:id/show', to: 'profiles#show', as: :profile  
 resources :relationships
   devise_for :users
   	resources :users, only:[:following, :followers] do

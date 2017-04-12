@@ -67,6 +67,18 @@
   opacity: 1;
   color: #FFFFFF;
 }
+.media-img {
+  height: 64px;
+  width: 64px;
+}
+.media a{
+  display: flex;
+  align-items: center;
+}
+.users-container {
+  max-width: 450px;
+  margin: 20px;
+}
 @media (min-width: 992px) {
   .modal-dialog {
     width: 900px;
