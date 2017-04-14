@@ -1,7 +1,13 @@
-<div class="top-container">
-	<%= simple_form_for @post do |f| %>
-	  <%= f.input :image %>
-	  <%= f.input :caption %>
-	  <%= f.button :submit %>
-	<% end %>
+<div class="container">
+  <div class="row top-container">
+    <div class="col-sm-12 col-md-12 pop-up ">
+	    <center> 	
+			<%= simple_form_for @post do |f| %>
+			  <%= f.input :image %>
+			  <%= f.input :caption %>
+			  <%= f.button :submit %>
+			<% end %>
+	    </center>
+		</div>
+	</div>
 </div>

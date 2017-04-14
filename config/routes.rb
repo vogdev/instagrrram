@@ -8,6 +8,9 @@ resources :relationships
   		member do
   			get :following, :followers
   		end
+            collection do
+                get 'search' => "users#search"
+            end
   	end
   root 'posts#index'
   resources :posts do 

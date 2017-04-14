@@ -333,7 +333,7 @@ a:hover, a:focus {
 }
 
 .teste{display: none;}
-.edit-user{
+.pop-up{
   margin-top: 40px;
   padding: 19px;
   margin-bottom: 20px;
@@ -344,4 +344,53 @@ a:hover, a:focus {
 }
 .update-btn{
   background-color: #009688;
+}
+
+
+
+
+.search-dropdown-menu {
+    position: absolute;
+    top: inherit;
+    left: inherit;
+    z-index: 1000;
+    display: none;
+    width: 201px;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+    max-height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.img-search {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  margin: 7px 10px;
+}
+
+.search-link {
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+}
+.search-link {
+  display: -webkit-box;
+  height: 50px;
+  border-bottom: 1px solid #dddddd
+}
+.search-link:last-child {
+    border: none;
 }

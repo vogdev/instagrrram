@@ -5,7 +5,7 @@ var VoteButton = React.createClass({
         likes: this.props.likes
           };
   }, // getInitialState
-  handelLike(post_id) {
+  handleLike(post_id) {
    $.ajax({
        url: `/posts/${post_id}/like`,
        type: 'PUT',
@@ -16,8 +16,8 @@ var VoteButton = React.createClass({
             });
               }.bind(this),
       });
-  }, // handelLike
-  handelUnlike(post_id) {
+  }, // handleLike
+  handleUnlike(post_id) {
     $.ajax({
        url: `/posts/${post_id}/unlike`,
        type: 'PUT',
@@ -28,17 +28,17 @@ var VoteButton = React.createClass({
       });
         }.bind(this),
       });
-  }, // handelUnlike
+  }, // handleUnlike
 renderBtn(){
    if (this.state.voted) {
      return (
-         <div className="btn btn-floating"  onClick={()=>this.handelUnlike(this.props.post_id)}>
+         <div className="btn btn-floating"  onClick={()=>this.handleUnlike(this.props.post_id)}>
           <span className="glyphicon glyphicon-heart"></span>
          </div>
      );
    } else {
      return (
-       <div className="btn btn-floating"  onClick={()=>this.handelLike(this.props.post_id)}>
+       <div className="btn btn-floating"  onClick={()=>this.handleLike(this.props.post_id)}>
            <span className="glyphicon glyphicon-heart-empty"></span>
        </div>
      );

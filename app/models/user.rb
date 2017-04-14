@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+searchkick word_start: [:username, :email]
 	acts_as_voter
 	validates :username, presence: true, length: { minimum: 4, maximum: 16 }
   devise :database_authenticatable, :registerable,
@@ -12,6 +13,12 @@ class User < ApplicationRecord
 	has_attached_file :user_image, styles: { original: "300x300>", thumb: "150x150>" }, :default_url => ActionController::Base.helpers.asset_path('UserMissing_:style.png')
 	validates_attachment_content_type :user_image, content_type: /\Aimage\/.*\z/
 	
+	def search_data
+		{
+			username: username,
+			email: email
+		}
+	end
 	def follow(other)
 		active_relationships.create(followed_id: other.id)		
 	end
