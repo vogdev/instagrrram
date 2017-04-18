@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-	params.require(:post).permit(:caption, :image, :likes)
+	params.require(:post).permit(:caption, :picture, :likes)
 	end
 	def set_post
 		@post = Post.find(params[:id])

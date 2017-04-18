@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <%= image_tag @user.user_image.url(:original), class:'img-circle user-profile-img'%>
+          <%= cl_image_tag(@user.avatar, alt: "img" ,quality: "auto",  class:'img-circle user-profile-img')%>
         </div>
         <div class="col-md-8 user-cta">
           <h3><%= @user.username%></h3>
@@ -35,7 +35,7 @@
                         </div>
                       <% end %>
                     <div class="pic">
-                        <%= image_tag post.image.url(:original), class: 'img-responsive' %>
+                        <%= cl_image_tag(post.picture, alt: "img", quality: "auto", class: 'img-responsive')%>
                     </div>
                   </div>  
                 <% end %>
@@ -51,7 +51,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="user_info">
-            <%= image_tag @user.user_image.url(:original), class:'img-circle post-user-img'%>
+            <%= cl_image_tag(@user.avatar, alt: "img", quality: "auto", class:'img-circle post-user-img')%>
              <p class="bt"><%= @user.username%></p>
             <%= render 'follow_button', :user => @user%>
           </div>
@@ -64,7 +64,7 @@
             <div class="col-md-4 no-float">
               <div class="modal-header-small">  
                 <div class="user_info">
-                  <%= image_tag @user.user_image.url(:original), class:'img-circle post-user-img'%>
+                  <%= cl_image_tag(@user.avatar, alt: "img", quality: "auto", class:'img-circle post-user-img')%>
                    <p class="bt"><%= @user.username%></p>
                   <%= render 'follow_button', :user => @user%>
                 </div>

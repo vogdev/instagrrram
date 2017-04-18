@@ -1,5 +1,5 @@
 json.profile_user do
-	json.(@user, :username, :user_image)
+	json.(@user, :username, :avatar)
 	json.posts_num @profilePosts.count
 	json.followers @user.followers.count
 	json.following @user.following.count

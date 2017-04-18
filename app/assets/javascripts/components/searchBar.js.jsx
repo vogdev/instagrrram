@@ -7,6 +7,7 @@ var searchBar = React.createClass({
   }, // getInitialState
   handlechange() {
   var term = this.refs.term.value;
+  console.log(term);
   if (term == ' ' || term == '' ) {
           this.setState({
               style: "hide"
@@ -30,7 +31,7 @@ var searchBar = React.createClass({
                       <li className="user-search-li"><img src={user.img} className="img-circle img-search"/>{user.username}</li>
                   </a>
               );
-          }, this // <== this is necessary to call getPortfolioData function from inside the map iterator  
+          }, this  
           );
    },
   render (){       

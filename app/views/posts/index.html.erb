@@ -4,7 +4,7 @@
 			<div class="thumbnail">
 				<div class="thumbnail-header">
 					<div class="user_info">
-						<%= image_tag post.user.user_image.url(:thumb), class: "img-circle post-user-img" %>
+						<%= cl_image_tag(post.user.avatar, alt: "img" ,quality: "auto", class: "img-circle post-user-img") %>
 						<p class="bt"><%= link_to post.user.username, profile_path(post.user.id) %></p>
 					</div>
 					<div class="post-date">
@@ -12,7 +12,7 @@
 					</div>
 				</div>
 				<div class="post-image">
-					<%= image_tag post.image.url(:original), class: "img-responsive" %>
+					<%= cl_image_tag(post.picture, alt: "img" ,quality: "auto", class: "img-responsive") %>
 				</div>
 				<div class="caption">
 					<%= react_component 'VoteButton', { post_id: post.id, voted: (current_user.voted_up_on? post), likes:(post.likes) } %>

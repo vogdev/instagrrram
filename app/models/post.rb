@@ -1,9 +1,7 @@
 class Post < ApplicationRecord
-	has_many :comments, dependent: :destroy
+	mount_uploader :picture, PictureUploader
 	acts_as_votable
+	has_many :comments, dependent: :destroy
 	belongs_to :user
-	validates :image, presence: true
-	has_attached_file :image, styles: { original: "600x600>", thumb: "300x300>" }, default_url: "/images/:style/missing.png"
-	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 	scope :followingAndCurrentUserPosts, ->(current_user) {where(user_id: current_user.following).or(where(user_id: current_user)).order('created_at DESC')}
 end
