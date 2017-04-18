@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
 	def search
 		if params[:term].present?
 			@users = User.search (params[:term]), fields: [:username, :email], match: :word_start
