@@ -1,19 +1,19 @@
 ---
 development:
   cloud_name: deqorjmzl
-  api_key: '498237243827526'
-  api_secret: yl_5UqjArYFBNMJ6varxC2qJ-Ms
+  api_key: ENV['CLD_KEY']
+  api_secret: ENV['CLD_SECRET']
   enhance_image_tag: true
   static_image_support: false
 production:
   cloud_name: deqorjmzl
-  api_key: '498237243827526'
-  api_secret: yl_5UqjArYFBNMJ6varxC2qJ-Ms
+  api_key: ENV['CLD_KEY']
+  api_secret:  ENV['CLD_SECRET']
   enhance_image_tag: true
   static_image_support: true
 test:
   cloud_name: deqorjmzl
-  api_key: '498237243827526'
-  api_secret: yl_5UqjArYFBNMJ6varxC2qJ-Ms
+  api_key:  ENV['CLD_SECRET']
+  api_secret:  ENV['CLD_SECRET']
   enhance_image_tag: true
   static_image_support: false

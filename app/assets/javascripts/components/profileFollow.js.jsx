@@ -6,7 +6,7 @@ getInitialState: function() {
   }, // getInitialState
    loadFollowers(user_id) {
 if (this.props.followers_count == 0) return;
-    fetch('http://localhost:3000/user/' + user_id + '/followers.json')
+    fetch('/user/' + user_id + '/followers.json')
       .then(data => data.json())
       .then(data =>{this.setState({Users: data})
         $('#follow').modal('toggle');
@@ -14,7 +14,7 @@ if (this.props.followers_count == 0) return;
     },
  loadFollowings(user_id) {
 if (this.props.following_count == 0) return;
-    fetch('http://localhost:3000/user/' + user_id + '/following.json')
+    fetch('/user/' + user_id + '/following.json')
       .then(data => data.json())
       .then(data =>{this.setState({Users: data})
         $('#follow').modal('toggle');
