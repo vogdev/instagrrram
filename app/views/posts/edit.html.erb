@@ -1,5 +1,6 @@
 <%= simple_form_for @post do |f| %>
-  <%= f.input :image %>
+  <%= f.input :picture %>
+  <%= f.hidden_field :picture_cache%>
   <%= f.input :caption %>
   <%= f.button :submit %>
 <% end %>
