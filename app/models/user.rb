@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 	mount_uploader :avatar, AvatarUploader
-	searchkick word_start: [:username, :email]
+	#searchkick word_start: [:username, :email]
 	acts_as_voter
 	validates :username, presence: true, length: { minimum: 4, maximum: 16 }
 	devise :database_authenticatable, :registerable,
@@ -11,12 +11,12 @@ class User < ApplicationRecord
 	has_many :following, through: :active_relationships,  source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
 	
-	def search_data
-		{
-			username: username,
-			email: email
-		}
-	end
+	# def search_data
+	# 	{
+	# 		username: username,
+	# 		email: email
+	# 	}
+	# end
 	def follow(other)
 		active_relationships.create(followed_id: other.id)		
 	end
