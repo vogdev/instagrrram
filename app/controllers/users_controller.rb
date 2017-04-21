@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+	def explore
+		@users = User.users_to_explore(current_user)
+	end
 	# before_action :authenticate_user!
 	# def search
 	# 	if params[:term].present?

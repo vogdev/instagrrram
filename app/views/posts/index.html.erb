@@ -1,7 +1,7 @@
 <div class="row index_page top-container">
 	<% @posts.each do |post| %>
 		<div class="col-sm-12 col-md-12 posts-grid">
-			<div class="thumbnail">
+			<div class="thumbnail shadow">
 				<div class="thumbnail-header">
 					<div class="user_info">
 						<%= cl_image_tag(post.user.avatar, alt: "img" ,quality: "auto", class: "img-circle post-user-img") %>
