@@ -1,4 +1,8 @@
 <div class="row index_page top-container">
+<% if (current_user.following.count == 0 && current_user.posts.count == 0) %>
+	<%=	 render 'wellcome' %>
+	<%=	 render 'explore' %>
+<%end%>
 	<% @posts.each do |post| %>
 		<div class="col-sm-12 col-md-12 posts-grid">
 			<div class="thumbnail shadow">

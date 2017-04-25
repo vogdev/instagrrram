@@ -1,14 +1,15 @@
 var profileFollow = React.createClass({
 getInitialState: function() {
     return {
-      Users: []
+      users: []
           };
   }, // getInitialState
    loadFollowers(user_id) {
 if (this.props.followers_count == 0) return;
     fetch('/user/' + user_id + '/followers.json')
+
       .then(data => data.json())
-      .then(data =>{this.setState({Users: data})
+      .then(data =>{this.setState({users: data})
         $('#follow').modal('toggle');
         });
     },
@@ -16,12 +17,12 @@ if (this.props.followers_count == 0) return;
 if (this.props.following_count == 0) return;
     fetch('/user/' + user_id + '/following.json')
       .then(data => data.json())
-      .then(data =>{this.setState({Users: data})
+      .then(data =>{this.setState({users: data})
         $('#follow').modal('toggle');
         });
   },
 renderModal(){
-      return this.state.Users.map(function(user, i) {
+      return this.state.users.map(function(user, i) {
           return (
           <div className="media" key={i}>
               <a href={user.profile_url}>

@@ -46,8 +46,9 @@ $(document).on('turbolinks:load', function() {
       $('#login').hide();
       $('#regester').show();
     });
-
-
+    $(".follow_btn").click(function(){
+        $(this).hide();
+    });
     // User profile page
     // User profile page
 });

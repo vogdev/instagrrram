@@ -17,7 +17,7 @@ class User < ApplicationRecord
 	# 		email: email
 	# 	}
 	# end
-	 scope :users_to_explore, -> (current_user){ where.not(id: [[current_user.id] + current_user.following.ids]).first(10) }
+	 scope :users_to_follow, -> (current_user){ where.not(id: [[current_user.id] + current_user.following.ids]).first(10) }
 	def follow(other)
 		active_relationships.create(followed_id: other.id)		
 	end

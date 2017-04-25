@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'user/:id/following', to: 'profiles#user_following', as: :following
   get 'user/:id/show', to: 'profiles#show', as: :profile  
   get "explore" => 'users#explore'
-resources :relationships
+  resources :relationships, only:[:create, :destroy] do
+  end
   devise_for :users
     resources :users, only:[:following, :followers] do
       member do
@@ -12,6 +13,7 @@ resources :relationships
       end
       collection do
           get 'search' => "users#search"
+          get 'explore' => "users#explore"
       end
     end
   resources :posts do 

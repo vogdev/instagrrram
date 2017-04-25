@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+ before_action :authenticate_user!
 	def explore
-		@users = User.users_to_explore(current_user)
+		@users_to_follow = User.users_to_follow(current_user)
 	end
-	# before_action :authenticate_user!
 	# def search
 	# 	if params[:term].present?
 	# 		@users = User.search (params[:term]), fields: [:username, :email], match: :word_start
