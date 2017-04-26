@@ -9,7 +9,16 @@
         </div>
         <div class="col-md-8 user-cta">
           <h3><%= @user.username%></h3>
-          <%= render 'follow_button', :user => @user%>
+          <%#= render 'follow_button', :user => @user%>
+          <%if current_user.id != @user.id %>
+            <center>
+            <%if !current_user.following?(@user)%>
+                <%= react_component("followBtn", following: false, user_id: @user.id) %>
+              <%else%>
+                <%= react_component("followBtn", following: true, relation_id: @user_relation.id) %>
+            <%end%>
+            </center>
+          <%end%>
         </div>
 
 <%= react_component 'profileFollow' ,{posts_count: @profilePosts.count, followers_count: @user.followers.count, following_count: @user.following.count, user_id: @user.id}%>
