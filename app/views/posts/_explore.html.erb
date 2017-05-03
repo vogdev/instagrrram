@@ -8,7 +8,7 @@
 		<% @users_to_follow.each do |user| %>
 			<div class="col-sm-12 col-md-12">
 				<div class="explore_user_info">
-					<%= cl_image_tag(user.avatar, alt: "img" ,quality: "auto", class: "img-circle post-user-img") %>
+					<%= user_explore_avatar(user) %>
 					<p class="bt user-username"><%= link_to user.username, profile_path(user.id) %></p>
 					<div class="fbtn">
 						<%if current_user.id != user.id %>

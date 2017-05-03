@@ -1,15 +1,11 @@
-<%if current_user.id != user.id %>
-	<center>
-	<%if !current_user.following?(user)%>
-			<%= form_for(current_user.active_relationships.build) do |f| %>
-				<%= hidden_field_tag :followed_id, user.id %>
-				<%= f.submit "Follow", class: 'btn btn-info modal-following' %>
-			<%end%>
-		<%else%>
-			<%= form_for(current_user.active_relationships.find_by(followed_id: user.id),
-						html: {method: :delete}) do |f| %>
-				<%= f.submit "Unfollow", class: 'btn modal-following' %>
-			<%end%>
-	<%end%>
-	</center>
-<%end%>
+<center>
+   <%if current_user.id != @user.id %>
+      <center>
+      <%if !current_user.following?(@user)%>
+          <%= react_component("followBtn", following: false, user_id: @user.id) %>
+       <%else%>
+          <%= react_component("followBtn", following: true, relation_id: @user_relation.id, user_id: @user.id) %>
+      <%end%>
+      </center>
+    <%end%>
+</center>

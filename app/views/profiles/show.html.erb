@@ -5,20 +5,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <%= cl_image_tag(@user.avatar, alt: "img" ,quality: "auto",  class:'img-circle user-profile-img')%>
+          <%=  user_profile_avatar(@user)%>
         </div>
         <div class="col-md-8 user-cta">
           <h3><%= @user.username%></h3>
-          <%#= render 'follow_button', :user => @user%>
-          <%if current_user.id != @user.id %>
-            <center>
-            <%if !current_user.following?(@user)%>
-                <%= react_component("followBtn", following: false, user_id: @user.id) %>
-              <%else%>
-                <%= react_component("followBtn", following: true, relation_id: @user_relation.id) %>
-            <%end%>
-            </center>
-          <%end%>
+          <%= render 'follow_button', :user => @user%>
         </div>
 
 <%= react_component 'profileFollow' ,{posts_count: @profilePosts.count, followers_count: @user.followers.count, following_count: @user.following.count, user_id: @user.id}%>

@@ -5,21 +5,13 @@ var followBtn = React.createClass({
         id: this.props.relation_id,
         following: this.props.following,
           };
-  }, // getInitialState
-  // componentDidMount: function () {
-  //           $.get("/users/explore.json", function(response) {
-  //                   this.setState({
-  //                   users: response
-  //               });
-  //           }.bind(this));
-  //       }, //componentDidMount
+  },
  handleFollow() {
             $.post(`/relationships/?followed_id=${this.props.user_id}`, function(response) {
                     this.setState({
                     id: response,
-                    following: !this.props.following
+                    following: true
                 });
-                // console.log(response);
             }.bind(this));
  }, // handleFollow
  handleUnFollow() {
@@ -42,25 +34,10 @@ success: function(data) {
           );  
     }
  },
-// renderBtn(){
-//    if (this.state.voted) {
-//      return (
-//          <div className="btn btn-floating"  onClick={()=>this.handleUnlike(this.props.post_id)}>
-//           <span className="glyphicon glyphicon-heart"></span>
-//          </div>
-//      );
-//    } else {
-//      return (
-//        <div className="btn btn-floating"  onClick={()=>this.handleLike(this.props.post_id)}>
-//            <span className="glyphicon glyphicon-heart-empty"></span>
-//        </div>
-//      );
-//    }
-//  },
   render (){       
     return(
       <div>
-{this.renderBtn()}
+          {this.renderBtn()}
       </div>
     )
   }
